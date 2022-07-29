@@ -1,0 +1,452 @@
+41.Dictionary  and Date & Time	Using calendar module perform following operations.
+a) Print the 2016 calendar with space between months as 10 characters.
+b) How many leap days between the years 1980 to 2025.
+c) Check given year is leap year or not. 
+d) print calendar of any specified month of the year 2016.
+
+
+sol(a) ->
+
+import calendar as c
+
+year =  2016
+
+for i in range(1,12):
+    print((c.month(year,i)))
+    print("                 ")
+
+
+
+
+sol(b) :
+r1 = 1980
+r2 = 2025
+
+leap_days_count=0
+
+for i in range(r1,r2+1) :
+
+    if (i%400 ==0) or (i%4==0) :
+        leap_days_count+=1
+    else :
+        continue
+
+
+print(leap_days_count)
+
+
+
+
+
+sol(c):
+
+year = 1996
+
+
+
+if (year%400 ==0) or (year%4==0) :
+    print(year,"is a leap year")
+else :
+    print(year,"is a not leap year")
+
+
+
+
+sol(d) : 
+import calendar as c
+
+year =  2016
+
+month = input()
+dic = {}
+for i in range(1,13):
+    dic[c.month_name[i]] = i
+
+
+print(c.month(year,dic[month]))
+
+
+
+________________________________________________________________________
+
+
+42	Functions:	Write a program to generate a Fibonacci series using a function called fib(n), 
+a) Where ‘n’ is user specified argument specifies number of elements in the series.
+
+
+sol() :
+n = int(input("Enter :"))
+l = []
+
+
+
+def fib(n):
+    index=0
+    for i in range(0,n):
+        
+        if len(l)<=1:
+            l.append(i)
+          
+        else:
+            
+            l.append(l[index+1]+l[index])
+            index+=1
+      
+
+
+    print(l)
+    
+fib(n)
+
+
+
+____________________________________________________________________
+
+
+
+43	Functions	Write a program to search given element from the list. Use your own function to search an element from list. 
+Note: Function should receive variable length arguments and search each of these arguments present in the list.
+    
+
+
+sol() :
+
+def mul_args1(*args):
+    l = input().strip().split()
+    list1 = [int(x) for x in l]
+    for i in args:
+        if i in list1:
+             print(i,"is present in ",list1)
+
+mul_args1(3,1,5)
+
+
+
+
+______________________________________________________________________________________________________________________________________________
+
+
+44	Functions	Write a program with lambda function to perform following.
+a) Perform all the operations of basic calculator (Add, Sub, Multiply, Divide, Modulus, Floor division)
+
+
+sol():
+l = [10,20,15,40,13]
+b = 5
+sum_list=[]
+def sum(l,b,sum_list):
+    sum_list = list(map(lambda x: x + b,l))
+    return list(sum_list)
+
+
+def sub(l,b,sum_list):
+    sum_list = list(map(lambda x: x - b,l))
+    return list(sum_list)
+
+
+
+def mul(l,b,sum_list):
+    sum_list = list(map(lambda x: x + b,l))
+    return list(sum_list)
+
+
+def div(l,b,sum_list):
+    sum_list = list(map(lambda x: x / b,l))
+    return list(sum_list)
+
+
+def mod(l,b,sum_list):
+    sum_list = list(map(lambda x: x % b,l))
+    return list(sum_list)
+
+
+def floor_div(l,b,sum_list):
+    sum_list = list(map(lambda x: x // b,l))
+    return list(sum_list)
+
+
+
+print(sum(l,b,sum_list))
+print(sub(l,b,sum_list))
+print(mul(l,b,sum_list))
+print(div(l,b,sum_list))
+print(mod(l,b,sum_list))
+print(floor_div(l,b,sum_list))
+
+
+___________________________________________________________________________________________________________________________________________________
+
+
+45	Functions	Write a program to check given string is Palindrome or not. 
+(Use function Concepts and Required keyword, Default parameter concepts) i.e Reverse the given string and check whether it is same as original string, if so then it is palindrome. 
+Example: String "malayalam" when reversed will be "malayalam" hence palindrome.
+
+
+sol-
+org_str = input("Enter a String : ")
+
+if(org_str.lower() == org_str.lower()[::-1]):
+    print(org_str,"--> is palindrone")
+else:
+    print(org_str,"--> is not palindrone")
+
+
+
+
+__________________________________________________________________________________________________________________________________________________
+
+46	Functions	Write a function to find the biggest of 4 numbers.
+a) All numbers are passed as arguments separately (Required argument)
+b) use default values for arguments (Default arguments)
+
+
+
+sol - 
+a = int(input("enter num 1 :"))
+b = int(input("enter num 2 :"))
+c = int(input("enter num 3 :"))
+d = int(input("enter num 4 :"))
+
+
+def find_large(*args):
+    max = 0
+    for i in args:
+        if i > max:
+            max = i
+        else:
+            continue
+    return max
+
+large = find_large(a,b,c,d)
+print(large)
+
+
+___________________________________________________________________________________________________________________________________________
+
+47:	Functions	
+Write function to extend the tuple with elements of list. Pass list and Tuple as parameter to the function.
+
+
+
+
+
+
+sol-
+l = [2,3,5,6]
+t=()
+
+def assign_tup(l,t):
+    t=tuple(l)
+    print(t)
+
+
+assign_tup(l,t)
+
+
+
+___________________________________________________________________________________________________________________________________________
+
+
+48	Functions	Create a Calculator with the following functions.
+a) Addition/subtraction/multiplication and division of two numbers (Note: Create separate function for each operation)
+b) Find square root of a given number. (Use keyword arguments in your function)
+c) Create a list of sub strings from a given string, such that sub strings are created with given character. i.e. String = "Pack: My: Box: With: Good: Food"
+Create sub strings with the delimiter character ":" such that the following sub strings are created. 
+substrlist=[Pack, My, Box, With, Good, Food] 
+Note : Function should take at least 2 parameters ( Main string and delimiter character) return value from function will be list of substring.
+
+
+
+
+sol:
+
+import math as m
+
+a = int(input("Enter num 1 :"))
+b = int(input("Enter num 2 :"))
+
+
+def sum(a,b) :
+    return a+b
+def sub(a,b) :
+    if a>=b :
+        return a-b
+    else:
+        return b-a
+def mul(a,b) :
+    return a*b
+
+def div(a,b) :
+    if a >= b:
+        return a / b
+    else:
+        return b / a
+
+
+def find_square_root(*args):
+    l=[]
+    for i in args:
+        l.append(m.sqrt(i))
+    print(l)
+
+
+def split_string(sample_str,ch):
+    string_list = sample_str.strip().split(ch+" ")
+    print(string_list)
+
+
+print(sum(a,b))
+print(sub(a,b))
+print(mul(a,b))
+print(div(a,b))
+
+
+
+find_square_root(36,69,81)
+
+
+
+sample_str = "Pack: My: Box: With: Good: Food"
+ch=':'
+split_string(sample_str,ch)
+
+
+
+___________________________________________________________________________________________________________________________________________
+
+
+
+
+
+49	File I/O Operations	Write a program to perform following file operations
+a) Open the file in read mode and read all its contents on to STDOUT.
+b) Open the file in write mode and enter 5 new lines of strings in to the new file.
+c) Open file in Append mode and add 5 lines of text into it.
+
+
+sol:
+f = open("E:\python programs\data.txt","r")
+
+for i in f:
+    print(i,end="")
+
+
+
+
+
+
+
+
+____________________________________________________________________________________________________________________________________________
+
+
+50	File I/O Operations	Write a program to open the existing file in read mode and perform following tasks,
+a) Rad 10 character at a time and then print its current position of file object. Repeat this operation till the EOF.
+b) Reset the file pointer after reading 100 Character from file (Use Seek function to reset)
+c) Open the file in read mode and start printing the contents from 5th line onwards.
+
+
+sol-
+
+
+f = open("E:\python programs\data_10.txt","w+")
+
+
+input = '''Python Lambda Functions are anonymous function means that the function is without a name.
+As we already know that the def keyword is used to define a normal function in Python.
+Similarly, the lambda keyword is used to define an anonymous function in Python. 
+Python Lambda Function Syntax:
+lambda arguments: expression
+ '''
+
+
+f.write(input)
+
+f1=open("E:\python programs\data_101.txt","r")
+str=""
+index=0
+while 1 :
+    char = f1.read(1)
+    index+=1
+    if not char:
+        break
+    str = str + char;
+    if(len(str)==10):
+        print(str)
+        str = ""
+        print("Index :",index)
+
+
+
+
+
+
+
+
+f1.close()
+
+
+
+file = open("E:\python programs\data_101.txt","r")
+str=""
+index=0
+while(1):
+    c = file.read(1)
+    index+=1
+    str=str+c
+    if not c:
+        break
+    if(index == 100):
+        break
+    print(c,end="")
+file.seek(0)
+file.close()
+
+
+
+file = open("E:\python programs\data_101.txt","r")
+str=""
+index=0
+
+for line in file:
+    index=index+1
+    if index > 4:
+        print(line,end="")
+    else:
+        continue
+
+
+
+_______________________________________________________________________________________________________________________________________________
+
+
+
+_______________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+_______________________________________________________________________________________________________________________________________________
+
+
+
+_______________________________________________________________________________________________________________________________________________
+
+
+
+
+
+_______________________________________________________________________________________________________________________________________________
+
+
+
+_______________________________________________________________________________________________________________________________________________
+
+
+
+
+
+

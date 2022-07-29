@@ -1,0 +1,5 @@
+str = input("enter a string :")
+l1 = list(str)
+ele = int(input("enter element to be removed :"))
+l1.remove(l1[ele])
+print(l1)
